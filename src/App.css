@@ -72,4 +72,17 @@ input[type="submit"]:hover{
   border: none;
   font-weight: bold;
 }
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
  
