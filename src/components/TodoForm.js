@@ -28,7 +28,7 @@ export default class TodoForm extends Component{
     handleChange = (event) => {
         let {name, value, checked} = event.target
 
-        value = (name === "urgent" || "done") ? checked : value
+        value = (name === "urgent") || (name === "done") ? checked : value
 
         this.setState({
             [name]: value 

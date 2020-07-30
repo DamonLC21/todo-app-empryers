@@ -10,13 +10,14 @@ export function patchTodo(todo){
       })
 }
 
-export function postTodo(todo){
+export function postTodo(todo, user){
   fetch(todosUrl, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.token}`
     },
-    body: JSON.stringify({ todo })
+    body: JSON.stringify({ todo: {...todo, user_id: user.id} })
   })
 }
 

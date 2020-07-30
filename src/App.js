@@ -7,6 +7,7 @@ import SignUpForm from './components/SignUpForm';
 import {Route, Switch, Redirect, Link} from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute'
 import Home from './components/Home';
+import Login from './components/Login'
 const todosUrl = "http://localhost:3000/todos/"
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
       todos: [...this.state.todos, newTodo]
     })
 
-    postTodo(newTodo)
+    postTodo(newTodo, this.state.user)
   }
 
   updateTodo = (updatedTodo) => {
@@ -138,8 +139,16 @@ class App extends Component {
             deleteTodo={this.deleteTodo} 
             todos={this.state.todos}
             />
+            <PrivateRoute 
+              exact 
+              path="/adrian"
+              component={TodoForm} 
+            />
           <Route exact path="/signup" render={(routerProps) => {
             return <SignUpForm {...routerProps} login={this.login} signUp={this.signUp} alerts={this.state.alerts}/>} 
+          }/>
+           <Route exact path="/login" render={(routerProps) => {
+            return <Login {...routerProps} login={this.login} alerts={this.state.alerts}/>} 
           }/>
           <Redirect to="/" />
         </Switch>

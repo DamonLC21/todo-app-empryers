@@ -15,9 +15,8 @@ export default function SignUpForm(props) {
             username, 
             password
         }
-        props.signUp(user)
+        props.login(user)
             .then(() => props.history.push('/'))
-
     }
 
     const handleChange = ({target}) => {
@@ -30,14 +29,14 @@ export default function SignUpForm(props) {
     
     return (
         <form className="signup-form" onSubmit={handleSubmit}>
-            <h1>Sign Up</h1>
+            <h1>Log In</h1>
             <label>Username</label>
             <input name="username" value={username} onChange={handleChange}/>
             <label>Password</label>
             <input type="password" name="password" value={password} onChange={handleChange}/>
             <input type="submit" />
             {props.alerts ? showAlerts() : null }
-            <p>Already a member? <Link to="/login">Log In</Link></p>
+            <Link to="/signup">Sign Up</Link>
         </form>
     )
 }
